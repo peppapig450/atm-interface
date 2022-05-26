@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.naming.BinaryRefAddr;
-
 // class for the Bank that contains all the customers and the accounts
 public class Bank {
 
