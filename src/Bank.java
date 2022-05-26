@@ -40,6 +40,7 @@ public class Bank {
         return uuid;
     }
 
+    // TODO: MAYBE IMPORT CUSTOMER CLASS AND ITS METHODS INSTEAD OF WRITING THEM HERE OR IMPLEMENT THE CLASS
     // create a new customer in the bank's system
     public Customer addUser(String firstName, String lastName, String pin) {
 
