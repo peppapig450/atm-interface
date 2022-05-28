@@ -28,7 +28,7 @@ public class PinHash {
      * @param   pin         the pin to hash
      * @return              a salted PBKDF2 hash of the pin
      */
-    public static String generateHash(char[] pin) 
+    public static String generateHash(String pin) 
         throws NoSuchAlgorithmException, InvalidKeySpecException 
     {
         // generate a random salt
@@ -37,7 +37,7 @@ public class PinHash {
             rnd.nextBytes(salt);
 
             // hash the pin
-            byte[] hash = pbkdf2(pin, salt, PBKDF2_ITERATIONS, HASH_BYTES);
+            byte[] hash = pbkdf2(pin.toCharArray(), salt, PBKDF2_ITERATIONS, HASH_BYTES);
             // format iterations:salt:hash
             return PBKDF2_ITERATIONS + ":" + toHexString(salt) + ":" + toHexString(hash);
     }
