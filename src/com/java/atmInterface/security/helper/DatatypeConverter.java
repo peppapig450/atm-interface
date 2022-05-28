@@ -1,4 +1,4 @@
-package com.java.atmInterface.helper;
+package com.java.atmInterface.security.helper;
 
 // Class copied from https://stackoverflow.com/a/11139098/17520245 because
 // the original class is unavailable to import.
