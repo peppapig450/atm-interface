@@ -1,5 +1,7 @@
 package com.java.atmInterface;
 
+import com.java.atmInterface.security.PinHash;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -42,7 +44,6 @@ public class Bank {
         return uuid;
     }
 
-    // TODO: MAYBE IMPORT CUSTOMER CLASS AND ITS METHODS INSTEAD OF WRITING THEM HERE OR IMPLEMENT THE CLASS
     // create a new customer in the bank's system
     public Customer addUser(String firstName, String lastName, String pin) {
 
@@ -68,13 +69,12 @@ public class Bank {
 
         // search through list of users for matching userID
         for (Customer user : usersList) {
+            String oldPin = user.getAccountPinHash();
             // if the credentials match an existing user, return Customer object
-            if (user.getUUID().compareTo(userID) == 0 && user.validatePin(pin)) {
+            if (user.getUUID().compareTo(userID) == 0 && PinHash.validatePin(pin, oldPin)) {
                 return user;
             }
         }
-
-        // TODO: ADD EXCEPTION AND ASK USER TO CREATE AN ACCOUNT OR TRY AGAIN
         return null; // if credentials are incorrect return null
     }
 
