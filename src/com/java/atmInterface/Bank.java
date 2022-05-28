@@ -2,6 +2,9 @@ package com.java.atmInterface;
 
 import com.java.atmInterface.security.PinHash;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -44,12 +47,38 @@ public class Bank {
         return uuid;
     }
 
+    // generate a new random unique ID for an account
+    public String getNewAccountUUID()  {
+        String uuid = "";
+        Random random = new Random();
+        int len = 10;
+        boolean nonUnique = false;
+
+        do {
+            // generates a random number
+            for (int i = 0; i < len; i++) {
+                uuid += ((Integer) random.nextInt(10)).toString(); 
+            }
+
+            // if the number is unique, we will use it
+            for (Account acc : accountsList) {
+                if (uuid.compareTo(acc.getUUID()) == 0) {
+                    nonUnique = true;
+                    break;
+                }
+            }
+ 
+        } while(nonUnique); // continue looping until we get a unique ID
+
+        return uuid;
+    }
+
     // create a new customer in the bank's system
     public Customer addUser(String firstName, String lastName, String pin) {
 
         // create a new Customer object and add it to the list
         Customer newUser = new Customer(firstName, lastName, pin, this);
-        userList.add(newUser);
+        usersList.add(newUser);
 
         // create a savings account for the new customer and add it to the list
         Account newAccount = new Account("Savings", newUser, this);
@@ -65,7 +94,7 @@ public class Bank {
     }
 
     // check if the entered credentials match an existing account, and if so login
-    public Customer userLogin(String userID, String pin) {
+    public Customer userLogin(String userID, String pin) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         // search through list of users for matching userID
         for (Customer user : usersList) {
