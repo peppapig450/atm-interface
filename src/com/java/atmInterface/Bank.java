@@ -33,7 +33,7 @@ public class Bank {
                 uuid += ((Integer) rnd.nextInt(10)).toString(); // generate the number
             }
 
-            for (Customer user : userList) {
+            for (Customer user : usersList) {
                 if (uuid.compareTo(user.gettUUID()) == 0) { // if the number is unique we will use it
                     nonUnique = true;
                     break;
