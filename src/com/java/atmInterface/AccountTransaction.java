@@ -8,7 +8,7 @@ public class AccountTransaction {
     
     private double amount;
     private Date timestamp; // time and date of the transaction
-    private String txtReference; // a note for the transaction
+    private String note; // a note for the transaction
     private Account inAccount;
 
     // constructor to create an Account Transaction object
@@ -16,15 +16,15 @@ public class AccountTransaction {
         this.amount = amount;
         this.inAccount = acc;
         this.timestamp = new Date();
-        this.txtReference = "";
+        this.note = "";
     }
 
     // overload the AccountTransaction constructor
-    public AccountTransaction(double amount, String txtReference, Account acc) {
+    public AccountTransaction(double amount, String note, Account acc) {
         // call the single-argument constructor first
         this(amount, acc);
 
-        this.txtReference = txtReference;
+        this.note = note;
     }
 
     // get method for the double amount
@@ -36,10 +36,10 @@ public class AccountTransaction {
     public String getSummaryLine() {
         if (amount >= 0) {
             return String.format("%s, $ %.02f : %s",
-                            timestamp.toString(), amount, txtReference);
+                            timestamp.toString(), amount, note);
         } else {
             return String.format("%s, $ (%.02f) : %s",
-                            timestamp.toString(), - amount, txtReference);
+                            timestamp.toString(), - amount, note);
         }
     }   
 }
