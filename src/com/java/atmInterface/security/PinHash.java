@@ -102,7 +102,7 @@ public class PinHash {
     }
 
     /**
-     *  Computes the PBKDF2 hash of a pin
+     *  Generates the PBKDF2 hash of a pin
      *
      * @param   pin         the pin to hash
      * @param   salt        the salt
