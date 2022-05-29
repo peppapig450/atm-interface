@@ -74,8 +74,48 @@ public class Customer {
         customerAccounts.get(acctIndex).addTransaction(amount, memo);
     }
 
+    // validate the accounts pin against the inputted one
+    public boolean validatePin(String aPin)  {
+        String checkHash;
 
+        // check the pin hashes and use correct error handling
+        try {
+            // generate the hash of the entered pin to check against the account's pin hash
+            checkHash = PinHash.generateHash(aPin);
 
-    
+            // if pin matches return true if it doesn't return false
+            if (PinHash.validatePin(checkHash, accountPinHash)) {
+                return true;
+            } else {
+                return false;
+            }
+            // handle errors
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e.getMessage());
+        }
+    }
 
+    // print out a summary of all accounts for the customer
+    public void printAccountsSummary() {
+
+        System.out.printf("|\t\t\t\t\t\t\t|\n|%s's accounts summary\t\t\t\t|\n", firstName);
+        System.out.println("|_______________________________________________________|");
+        // iterate through the customer's accounts and print out their summaries
+        for (int i = 0; i < customerAccounts.size(); i++) {
+            System.out.printf("%d) %s\n", i+1, customerAccounts.get(i).getSummaryLine());
+        }
+        System.out.println();
+    }
+
+    // get the overdraft balance of the customers accounts
+    public void getOverdraftBal() {
+        // iterate through their accounts to print out the overdraft balance
+        for (int i = 0; i < customerAccounts.size(); i++) {
+            System.out.printf("%d) %s\n", i+1, customerAccounts.get(i).getBalance());
+        }
+    }
 }
