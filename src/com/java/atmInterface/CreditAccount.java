@@ -1,7 +1,5 @@
 package com.java.atmInterface;
 
-import java.util.ArrayList;
-
 public class CreditAccount extends Account {
 
     private double overDraftLimit;
