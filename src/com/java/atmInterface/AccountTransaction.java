@@ -39,7 +39,7 @@ public class AccountTransaction {
                             timestamp.toString(), amount, note);
         } else {
             return String.format("%s, $ (%.02f) : %s",
-                            timestamp.toString(), - amount, note);
+                            timestamp.toString(), amount, note);
         }
     }   
 }
