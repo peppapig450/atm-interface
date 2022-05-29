@@ -2,6 +2,8 @@ package com.java.atmInterface;
 
 import com.java.atmInterface.security.PinHash;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 public class Customer {
     private String firstName;
@@ -12,7 +14,7 @@ public class Customer {
     private ArrayList<Account> customerAccounts;
 
     // create new customer with given name, pin, and bank branch
-    public Customer(String firstName, String lastName, String pin, Bank bank) {
+    public Customer(String firstName, String lastName, String pin, Bank bank) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         // set user's name
         this.firstName = firstName;
@@ -35,5 +37,16 @@ public class Customer {
     public String getAccountPinHash() {
         return this.accountPinHash;
     }
+
+    public String getUUID() {
+        return this.uuid;
+    }
+
+    public void addAccount(Account acct) {
+        this.customerAccounts.add(acct);
+    }
+    
+
+    
 
 }

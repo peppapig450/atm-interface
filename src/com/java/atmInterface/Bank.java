@@ -7,7 +7,6 @@ import java.security.spec.InvalidKeySpecException;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 // class for the Bank that contains all the customers and the accounts
 public class Bank {
@@ -37,7 +36,7 @@ public class Bank {
             }
 
             for (Customer user : usersList) {
-                if (uuid.compareTo(user.gettUUID()) == 0) { // if the number is unique we will use it
+                if (uuid.compareTo(user.getUUID()) == 0) { // if the number is unique we will use it
                     nonUnique = true;
                     break;
                 }
@@ -74,7 +73,7 @@ public class Bank {
     }
 
     // create a new customer in the bank's system
-    public Customer addUser(String firstName, String lastName, String pin) {
+    public Customer addUser(String firstName, String lastName, String pin) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         // create a new Customer object and add it to the list
         Customer newUser = new Customer(firstName, lastName, pin, this);
