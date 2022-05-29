@@ -34,18 +34,47 @@ public class Customer {
                 lastName, firstName, uuid);
     }
 
+    // get the hash of the account's pin
     public String getAccountPinHash() {
         return this.accountPinHash;
     }
 
+    // get the accounts UUID
     public String getUUID() {
         return this.uuid;
     }
 
+    // add an account to the list
     public void addAccount(Account acct) {
         this.customerAccounts.add(acct);
     }
     
+    // get number of customer accounts
+    public int numAccounts() {
+        return this.customerAccounts.size();
+    }
+
+    // get the balance of the account at the specified index
+    public double getAccountBalance(int acctIndex) {
+        return this.customerAccounts.get(acctIndex).getBalance();
+    }
+
+    // get the UUID of the account at the specified index
+    public String getAccountUUID(int acctIndex) {
+        return this.customerAccounts.get(acctIndex).getUUID();
+    }
+
+    // display the history of the account at the specified index
+    public void displayAccountHistory(int acctIndex) {
+        customerAccounts.get(acctIndex).printTransactionHistory();
+    }
+
+    // add a transaction for the account a tthe 
+    public void addAccountTransaction(int acctIndex, double amount, String memo) {
+        customerAccounts.get(acctIndex).addTransaction(amount, memo);
+    }
+
+
 
     
 
