@@ -195,10 +195,15 @@ public class ATM implements Overdraft {
                     System.out.printf("Amount must be not greater than balance of $%.02f.\n", accountBal);
                 }
             } while (amount < 0 || amount > accountBal); // loop until valid amount is entered
+            
+            
+            user.addAccountTransaction(fromAccount, amount, String.format("Transfer to account %s",
+                user.getAccountUUID(toAccount)));
+
+            user.addAccountTransaction(toAccount, amount, String.format("Transfer from ac "));
         }
 
-        user.addAccountTransaction(fromAccount, (amount * -1), String.format("Transfer to account %s",
-                        user.getAccountUUID(toAccount));
+
                     
 
 

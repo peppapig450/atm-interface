@@ -70,8 +70,8 @@ public class Customer {
     }
 
     // add a transaction for the account a tthe 
-    public void addAccountTransaction(int acctIndex, double amount, String memo) {
-        customerAccounts.get(acctIndex).addTransaction(amount, memo);
+    public void addAccountTransaction(int acctIndex, double amount, String note) {
+        customerAccounts.get(acctIndex).addTransaction(amount, note);
     }
 
     // validate the accounts pin against the inputted one
