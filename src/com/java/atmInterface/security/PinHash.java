@@ -11,7 +11,7 @@ import java.security.spec.InvalidKeySpecException;
 
 // Seperate class for handling the security of the account PIN
 public class PinHash {
-    public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacsSHA1";
+    public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA1";
     
     public static final int SALT_BYTES = 16;
     public static final int HASH_BYTES  = 512;
