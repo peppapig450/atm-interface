@@ -37,7 +37,7 @@ public class Account {
 
     // overload previous method to include the note
     public void addTransaction(double amount, String note) {
-        AccountTransaction newTrans = new AccountTransaction(amount, note, this); 
+        AccountTransaction newTrans = new AccountTransaction(amount, this, note); 
         transactions.add(newTrans);
     }
 
