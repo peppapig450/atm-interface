@@ -61,9 +61,9 @@ public class Account {
         double balance = getBalance();
 
         if (balance >= 0) {
-            return String.format("%s : $ %.02f : %s", uuid, balance, name); // format line as normal
+            return String.format("%s : $%.02f : %s", uuid, balance, name); // format line as normal
         } else {
-            return String.format("%s : $ (%.02f) : %s", uuid, balance, name); // if value is negative
+            return String.format("%s : $(%.02f) : %s", uuid, balance, name); // if value is negative
         }
     }
 
