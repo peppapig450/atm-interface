@@ -98,6 +98,7 @@ public class Bank {
         // search through list of users for matching userID
         for (Customer user : usersList) {
             String oldPin = user.getAccountPinHash();
+            System.out.println("existing account pin " + oldPin);
             // if the credentials match an existing user, return Customer object
             if (user.getUUID().compareTo(userID) == 0 && PinHash.validatePin(pin, oldPin)) {
                 return user;

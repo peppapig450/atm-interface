@@ -47,7 +47,7 @@ public class ATM implements Overdraft {
             do {
                 System.out.println(" _____________________Cash Flows ATM _____________________");
                 System.out.print("|\t\t\t\t\t\t\t| \n");
-                System.out.printf("|\tWelcome to %s\t\t|\n", theBank.getName());
+                System.out.printf("|\t\tWelcome to %s\t\t|\n", theBank.getName());
                 System.out.print("|\t\t\t\t\t\t\t| \n");
                 System.out.println("|_______________________________________________________|");
                 System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");

@@ -69,6 +69,8 @@ public class PinHash {
         // iteration count, and hash length
         byte[] testHash = pbkdf2(pin, salt, iterations, hash.length);
 
+        System.out.println("hash " + hash);
+        System.out.println("test hash " + testHash);
         // compare the hashes in constant time. the pin is correct if
         // both hashes match.
         return isEqual(hash, testHash);
