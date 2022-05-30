@@ -22,6 +22,7 @@ public class AccountTransaction {
     // overload the AccountTransaction constructor
     public AccountTransaction(double amount, String note, Account acc) {
         // call the single-argument constructor first
+        
         this(amount, acc);
 
         this.note = note;
