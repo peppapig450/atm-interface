@@ -1,5 +1,7 @@
 package main.java.com.apcsa.app;
 
+import main.java.com.apcsa.app.*;
+
 import java.util.ArrayList;
 
 public class Customer {
@@ -18,7 +20,7 @@ public class Customer {
         this.lastName = lastName;
 
         // store the pin's salted PBKDF2 hash instead of original, for security reasons
-        this.accountPinHash = PinHash.generateHash(pin);
+        this.accountPinHash = Pin.generateHash(pin);
 
         // get a new, unique universal unique ID for the user
         this.uuid = bank.getNewUserUUID();
@@ -73,27 +75,17 @@ public class Customer {
 
     // validate the accounts pin against the inputted one
     public boolean validatePin(String aPin)  {
-        String checkHash;
 
-        // check the pin hashes and use correct error handling
-        try {
-            // generate the hash of the entered pin to check against the account's pin hash
-            checkHash = PinHash.generateHash(aPin);
 
-            // if pin matches return true if it doesn't return false
-            if (PinHash.validatePin(checkHash, accountPinHash)) {
-                return true;
-            } else {
-                return false;
-            }
-            // handle errors
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e.getMessage());
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e.getMessage());
+        String storedHash = getAccountPinHash();
+
+        // if pin matches return true if it doesn't return false
+        if (Pin.validatePin(aPin, storedHash)) {
+            return true;
+        } else {
+            return false;
         }
+            // handle errors
     }
 
     // print out a summary of all accounts for the customer
