@@ -1,21 +1,21 @@
-package com.java.atmInterface;
+package main.java.com.apcsa.app;
 
 import java.util.ArrayList;
 
 // Class for creating a bank account object
 public class Account {
-    
+
     private static String name;
     private String uuid;
 
-    private Customer accountHolder; // customer 
+    private Customer accountHolder; // customer
     private ArrayList<AccountTransaction> transactions; // list of transactions for this account
 
     // constructor for the account class
     public Account(String name, Customer holder, Bank bank) {
         // set the name of the account and the account holder
         Account.name = name;
-        this.accountHolder = holder; 
+        this.accountHolder = holder;
 
         // get new account UUID
         this.uuid = bank.getNewAccountUUID();
@@ -37,7 +37,7 @@ public class Account {
 
     // overload previous method to include the note
     public void addTransaction(double amount, String note) {
-        AccountTransaction newTrans = new AccountTransaction(amount, note, this); 
+        AccountTransaction newTrans = new AccountTransaction(amount, note, this);
         transactions.add(newTrans);
     }
 

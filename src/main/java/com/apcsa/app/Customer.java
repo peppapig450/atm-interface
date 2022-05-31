@@ -1,10 +1,7 @@
-package com.java.atmInterface;
+package main.java.com.apcsa.app;
 
-import com.java.atmInterface.security.PinHash;
-
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
+
 public class Customer {
     private String firstName;
     private String lastName;
@@ -14,7 +11,7 @@ public class Customer {
     private ArrayList<Account> customerAccounts;
 
     // create new customer with given name, pin, and bank branch
-    public Customer(String firstName, String lastName, String pin, Bank bank) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public Customer(String firstName, String lastName, String pin, Bank bank)  {
 
         // set user's name
         this.firstName = firstName;
@@ -48,7 +45,7 @@ public class Customer {
     public void addAccount(Account acct) {
         this.customerAccounts.add(acct);
     }
-    
+
     // get number of customer accounts
     public int numAccounts() {
         return this.customerAccounts.size();
@@ -69,7 +66,7 @@ public class Customer {
         customerAccounts.get(acctIndex).printTransactionHistory();
     }
 
-    // add a transaction for the account a tthe 
+    // add a transaction for the account a tthe
     public void addAccountTransaction(int acctIndex, double amount, String note) {
         customerAccounts.get(acctIndex).addTransaction(amount, note);
     }

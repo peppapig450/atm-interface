@@ -1,11 +1,11 @@
-package com.java.atmInterface;
+package main.java.com.apcsa.app;
 
 import java.util.Date;
 
-// Class to handle account transactions so that we can store them in arraylists in the 
+// Class to handle account transactions so that we can store them in arraylists in the
 // account class
 public class AccountTransaction {
-    
+
     private double amount;
     private Date timestamp; // time and date of the transaction
     private String note; // a note for the transaction
@@ -22,7 +22,7 @@ public class AccountTransaction {
     // overload the AccountTransaction constructor
     public AccountTransaction(double amount, String note, Account acc) {
         // call the single-argument constructor first
-        
+
         this(amount, acc);
 
         this.note = note;
@@ -42,5 +42,5 @@ public class AccountTransaction {
             return String.format("%s, $ (%.02f) : %s",
                             timestamp.toString(), amount, note);
         }
-    }   
+    }
 }

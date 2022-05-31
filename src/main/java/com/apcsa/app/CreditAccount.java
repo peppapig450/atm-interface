@@ -1,4 +1,4 @@
-package com.java.atmInterface;
+package main.java.com.apcsa.app;
 
 public class CreditAccount extends Account {
 
@@ -17,5 +17,5 @@ public class CreditAccount extends Account {
         balance = overDraftLimit;
         return balance;
     }
-     
+
 }

@@ -1,4 +1,4 @@
-package com.java.atmInterface;
+package main.java.com.apcsa.app;
 
 // interface for the methods to handle overdrafts, or when you borrow money
 // through your current bank account by taking out more money than you

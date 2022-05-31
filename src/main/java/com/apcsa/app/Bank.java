@@ -1,6 +1,4 @@
-package com.java.atmInterface;
-
-import com.java.atmInterface.security.PinHash;
+package main.java.com.apcsa.app;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -56,7 +54,7 @@ public class Bank {
         do {
             // generates a random number
             for (int i = 0; i < len; i++) {
-                uuid += ((Integer) random.nextInt(10)).toString(); 
+                uuid += ((Integer) random.nextInt(10)).toString();
             }
 
             // if the number is unique, we will use it
@@ -66,7 +64,7 @@ public class Bank {
                     break;
                 }
             }
- 
+
         } while(nonUnique); // continue looping until we get a unique ID
 
         return uuid;
@@ -74,7 +72,6 @@ public class Bank {
 
     // create a new customer in the bank's system
     public Customer addUser(String firstName, String lastName, String pin) throws NoSuchAlgorithmException, InvalidKeySpecException {
-
         // create a new Customer object and add it to the list
         Customer newUser = new Customer(firstName, lastName, pin, this);
         usersList.add(newUser);

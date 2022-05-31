@@ -1,4 +1,4 @@
-package com.java.atmInterface;
+package main.java.com.apcsa.app;
 
 import java.util.Scanner;
 import java.security.NoSuchAlgorithmException;
@@ -71,7 +71,7 @@ public class ATM implements Overdraft {
                         System.out.println("Login failed " + "Incorrect user ID & pin combination. " +
                                     "Please double check your info and try again.");
                         continue;
-                    } 
+                    }
                 } catch (NoSuchAlgorithmException e) {
                     e.printStackTrace();
                     throw new RuntimeException(e.getMessage());
@@ -80,7 +80,7 @@ public class ATM implements Overdraft {
                     throw new RuntimeException(e.getMessage());
                 }
 
-                
+
             } while (authUser == null); // continue looping until successful login by user or quit
 
             return authUser;
@@ -182,7 +182,7 @@ public class ATM implements Overdraft {
                     System.out.println("Invalid account. Please try again.");
                 }
             } while (toAccount < 0 || toAccount >= user.numAccounts()); // loop until a valid account is entered
-        
+
 
              // get amount of funds to transfer
             do {
@@ -195,12 +195,12 @@ public class ATM implements Overdraft {
                     System.out.printf("Amount must be not greater than balance of $%.02f.\n", accountBal);
                 }
             } while (amount < 0 || amount > accountBal); // loop until valid amount is entered
-            
-            
+
+
             user.addAccountTransaction(fromAccount, -1 * amount, String.format("Transfer to account %s",
                 user.getAccountUUID(toAccount)));
 
-            user.addAccountTransaction(toAccount, -1 * amount, String.format("Transfer from account %s", 
+            user.addAccountTransaction(toAccount, -1 * amount, String.format("Transfer from account %s",
                 user.getAccountUUID(fromAccount)));
         }
 
@@ -213,7 +213,7 @@ public class ATM implements Overdraft {
             if (user.numAccounts() != 1) {
                 // get account to withdraw from
                 do {
-                    System.out.printf("Enter the number (1-%d) of the account to withdraw from: ", 
+                    System.out.printf("Enter the number (1-%d) of the account to withdraw from: ",
                         user.numAccounts());
                     withdrawAccount = sc.nextInt();
                     // check if the account number is valid
@@ -226,7 +226,7 @@ public class ATM implements Overdraft {
             }
 
             accountBal = user.getAccountBalance(withdrawAccount);
-            
+
             // get amount to transfer
             do {
                 System.out.printf("Enter the amount to withdraw (max $%.02f): $", accountBal);
@@ -279,7 +279,7 @@ public class ATM implements Overdraft {
             sc.nextLine();
 
             // get a note
-            System.out.print("Enter a Note for your deposit: "); 
+            System.out.print("Enter a Note for your deposit: ");
             note = sc.nextLine();
 
             // do the deposit
