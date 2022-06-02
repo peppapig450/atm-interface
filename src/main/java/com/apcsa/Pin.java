@@ -1,13 +1,15 @@
-package main.java.com.apcsa.app;
+package main.java.com.apcsa;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 // deal with pin hashes using bcrypt for security
 public class Pin {
     // define bcrypt workload to use when generating hashes
     private static int workload = 12;
+    private static String salt = BCrypt.gensalt(workload);
 
     // generate a string representing a hashed pin
     public static String generateHash(String pin) {
-        String salt = BCrypt.gensalt(workload);
         String hashed_pin = BCrypt.hashpw(pin, salt);
 
         return hashed_pin;
@@ -17,7 +19,7 @@ public class Pin {
     public static boolean validatePin(String pin, String hash) {
         boolean pin_verified = false;
 
-        if (null == hash || !hash.startsWith("2a$")) {
+        if (hash == null) {
             throw new java.lang.IllegalArgumentException("Invalid hash provided.");
         }
 

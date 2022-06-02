@@ -1,6 +1,6 @@
-package main.java.com.apcsa.app;
+package main.java.com.apcsa;
 
-import main.java.com.apcsa.app.*;
+import main.java.com.apcsa.Pin;
 
 import java.util.ArrayList;
 

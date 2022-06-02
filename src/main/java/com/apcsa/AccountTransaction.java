@@ -1,4 +1,4 @@
-package main.java.com.apcsa.app;
+package main.java.com.apcsa;
 
 import java.util.Date;
 

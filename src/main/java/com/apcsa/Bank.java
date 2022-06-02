@@ -1,6 +1,6 @@
-package main.java.com.apcsa.app;
+package main.java.com.apcsa;
 
-import main.java.com.apcsa.app.Pin;
+import main.java.com.apcsa.Pin;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -94,7 +94,6 @@ public class Bank {
         // search through list of users for matching userID
         for (Customer user : usersList) {
             String oldPin = user.getAccountPinHash();
-            System.out.println("existing account pin " + oldPin);
             // if the credentials match an existing user, return Customer object
             if (user.getUUID().compareTo(userID) == 0 && Pin.validatePin(pin, oldPin)) {
                 return user;
