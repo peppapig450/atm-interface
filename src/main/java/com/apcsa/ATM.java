@@ -91,7 +91,7 @@ public class ATM implements Overdraft {
                 System.out.println("|  5) Overdraft options");
                 System.out.println("|  6) Logout of/Quit the Application");
                 System.out.println();
-                System.out.println("| Enter choice: ");
+                System.out.print("| Enter choice: ");
                 choice = sc.nextInt();
 
                 // if the choice isn't within the available options prompt again
@@ -114,8 +114,9 @@ public class ATM implements Overdraft {
                     break;
                 case 4:
                     ATM.showTransactionHistory(user, sc); // print all transactions for user on screen
+                    break;
                 case 5:
-                    System.out.println("Please contact your branch to discuss available overdraft options. \n"); // overdraft options
+                    System.out.println("Please contact your branch to discuss available overdraft options."); // overdraft options
                     ATM.overdraftMenu(user, sc);
                     break;
                 case 6:
@@ -201,8 +202,7 @@ public class ATM implements Overdraft {
             if (user.numAccounts() != 1) {
                 // get account to withdraw from
                 do {
-                    System.out.printf("Enter the number (1-%d) of the account to withdraw from: ",
-                        user.numAccounts());
+                    System.out.printf("Enter the number (1-%d) of the account to withdraw from: ", user.numAccounts());
                     withdrawAccount = sc.nextInt();
                     // check if the account number is valid
                     if (withdrawAccount < 0 || withdrawAccount >= user.numAccounts()) {
@@ -243,11 +243,11 @@ public class ATM implements Overdraft {
 
             if (user.numAccounts() != 1) {
                 do {
-                    System.out.print("Enter the number (1-%d) of the account to deposit to: " + user.numAccounts());
+                    System.out.printf("Enter the number (1-%d) of the account to deposit to: ", user.numAccounts());
                     toAccount = sc.nextInt() - 1;
 
                     // check if entered account number is valid
-                    if (toAccount < 0 || toAccount >= user.numAccounts()); {
+                    if (toAccount < 0 || toAccount >= user.numAccounts()) {
                         System.out.println("Invalid account. Please try again.");
                     }
                 } while (toAccount < 0 || toAccount >= user.numAccounts()); // loop uuntil we get a valid response
@@ -279,7 +279,7 @@ public class ATM implements Overdraft {
 
             if (user.numAccounts() != 1) {
                 do {
-                    System.out.printf("Entere the number (1-%d) of the account\nwhose transactions you want to see: ", user.numAccounts());
+                    System.out.printf("Enter the number (1-%d) of the account\nwhose transactions you want to see: ", user.numAccounts());
                     theAccount = sc.nextInt() - 1;
                     if (theAccount < 0 || theAccount >= user.numAccounts()) {
                         System.out.println("Invalid account. Please try again.");
