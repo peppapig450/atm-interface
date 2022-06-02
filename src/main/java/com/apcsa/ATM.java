@@ -257,7 +257,7 @@ public class ATM implements Overdraft {
 
             // get amount to transfer
             do {
-                System.out.println("Enter the amount to deposit: $");
+                System.out.print("Enter the amount to deposit: $");
                 amount = sc.nextDouble();
                 if (amount < 0) {
                     System.out.println("Amount must be greater than zero.");
