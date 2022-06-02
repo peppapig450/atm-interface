@@ -1,7 +1,6 @@
 package main.java.com.apcsa.app;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import main.java.com.apcsa.app.Pin;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -71,7 +70,7 @@ public class Bank {
     }
 
     // create a new customer in the bank's system
-    public Customer addUser(String firstName, String lastName, String pin) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public Customer addUser(String firstName, String lastName, String pin) {
         // create a new Customer object and add it to the list
         Customer newUser = new Customer(firstName, lastName, pin, this);
         usersList.add(newUser);
@@ -90,14 +89,14 @@ public class Bank {
     }
 
     // check if the entered credentials match an existing account, and if so login
-    public Customer userLogin(String userID, String pin) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public Customer userLogin(String userID, String pin)  {
 
         // search through list of users for matching userID
         for (Customer user : usersList) {
             String oldPin = user.getAccountPinHash();
             System.out.println("existing account pin " + oldPin);
             // if the credentials match an existing user, return Customer object
-            if (user.getUUID().compareTo(userID) == 0 && PinHash.validatePin(pin, oldPin)) {
+            if (user.getUUID().compareTo(userID) == 0 && Pin.validatePin(pin, oldPin)) {
                 return user;
             }
         }

@@ -1,12 +1,9 @@
 package main.java.com.apcsa.app;
 
 import java.util.Scanner;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
 
 public class ATM implements Overdraft {
-    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Bank theBank = new Bank("Golden Horizon Bank");
         Customer defaultUser = theBank.addUser("Harry", "Patterson", "0000");
@@ -59,27 +56,18 @@ public class ATM implements Overdraft {
                 pin = sc.nextLine();
 
                 // attempt to get the customer object corresponding to the entered ID and pin combo
-                try {
-                    authUser = theBank.userLogin(userID, pin);
-                    if (authUser != null) {
-                        System.out.println("|_______________________________________________________|");
-                        System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");
-                        System.out.println("|__________________Log In Success_______________________|");
-                        System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");
-                        break;
-                    } else {
-                        System.out.println("Login failed " + "Incorrect user ID & pin combination. " +
-                                    "Please double check your info and try again.");
-                        continue;
-                    }
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e.getMessage());
-                } catch (InvalidKeySpecException e) {
-                    e.printStackTrace();
-                    throw new RuntimeException(e.getMessage());
+                authUser = theBank.userLogin(userID, pin);
+                if (authUser != null) {
+                    System.out.println("|_______________________________________________________|");
+                    System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");
+                    System.out.println("|__________________Log In Success_______________________|");
+                    System.out.println("|xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|");
+                    break;
+                } else {
+                    System.out.println("Login failed " + "Incorrect user ID & pin combination. " +
+                            "Please double check your info and try again.");
+                    continue;
                 }
-
 
             } while (authUser == null); // continue looping until successful login by user or quit
 
