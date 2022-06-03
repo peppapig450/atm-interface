@@ -122,7 +122,8 @@ public class ATM implements Overdraft {
                 ATM.overdraftMenu(user, sc);
                 break;
             case 6:
-                sc.nextLine();
+                System.out.println("Thank you for using our ATM, have a nice day.");
+                System.exit(0);
                 break;
         }
 
