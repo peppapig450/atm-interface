@@ -36,11 +36,11 @@ public class AccountTransaction {
     // returns a string summarizing the text
     public String getSummaryLine() {
         if (amount >= 0) {
-            return String.format("%s, $ %.02f : %s",
-                            timestamp.toString(), amount, note);
+            return String.format("%s, $%.02f : %s",
+                    timestamp.toString(), amount, note);
         } else {
-            return String.format("%s, $ (%.02f) : %s",
-                            timestamp.toString(), amount, note);
+            return String.format("%s, $(%.02f) : %s",
+                    timestamp.toString(), amount, note);
         }
     }
 }
