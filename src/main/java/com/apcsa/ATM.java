@@ -188,11 +188,11 @@ public class ATM implements Overdraft {
             }
         } while (amount < 0 || amount > accountBal); // loop until valid amount is entered
 
-        user.addAccountTransaction(fromAccount, -1 * amount, String.format("Transfer to account %s",
-                user.getAccountUUID(toAccount)));
-
-        user.addAccountTransaction(toAccount, amount, String.format("Transfer from account %s",
+        user.addAccountTransaction(fromAccount, -1 * amount, String.format("Transfer from account %s",
                 user.getAccountUUID(fromAccount)));
+
+        user.addAccountTransaction(toAccount, amount, String.format("Transfer to account %s",
+                user.getAccountUUID(toAccount)));
     }
 
     // process a withdrawl of funds from an account
