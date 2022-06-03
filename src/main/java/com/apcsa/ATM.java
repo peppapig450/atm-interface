@@ -204,7 +204,7 @@ public class ATM implements Overdraft {
             // get account to withdraw from
             do {
                 System.out.printf("Enter the number (1-%d) of the account to withdraw from: ", user.numAccounts());
-                withdrawAccount = sc.nextInt();
+                withdrawAccount = sc.nextInt() - 1;
                 // check if the account number is valid
                 if (withdrawAccount < 0 || withdrawAccount >= user.numAccounts()) {
                     System.out.println("Invalid account. Please try again.");
