@@ -190,7 +190,7 @@ public class ATM implements Overdraft {
         user.addAccountTransaction(fromAccount, -1 * amount, String.format("Transfer to account %s",
                 user.getAccountUUID(toAccount)));
 
-        user.addAccountTransaction(toAccount, -1 * amount, String.format("Transfer from account %s",
+        user.addAccountTransaction(toAccount, amount, String.format("Transfer from account %s",
                 user.getAccountUUID(fromAccount)));
     }
 
