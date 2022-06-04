@@ -2,6 +2,8 @@
 
 This is a Java project that simulates a basic ATM in the console.
 
+My journal is on github [here](https://github.com/peppapig450/atm-interface)
+
 ## Running the Project
 
 ### Compiling yourself

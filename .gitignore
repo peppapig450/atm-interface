@@ -3,6 +3,10 @@
 ##############################
 .mtj.tmp/
 *.class
+*.classpath
+*.project
+.settings/
+.replit
 *.jar
 *.war
 *.ear
